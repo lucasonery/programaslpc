@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 void preenche(int matriz[9][9]){
 
 srand(time(0));    
 for ( i=0; i<9; i++ ){
     for ( j=0; j<9; j++ ) {
-         matriz = rand()%10;
+         matriz[i][j] = rand()%10;
      }
 }
 return;

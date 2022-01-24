@@ -4,7 +4,8 @@
 
 int main(){
     
-    int n, i, j, m, k, mat[TAM][TAM], controle, vet[10], recebe, linha, coluna; 
+    int n, i, j, m, k, controle, vet[10], recebe, linha, coluna, caracter; 
+    char mat[TAM][TAM], espaco;
     
     controle = 0;
     scanf("%d", &n);
@@ -18,15 +19,19 @@ int main(){
         //ler a primeira matriz
         for (i=0; i<9; i++){
             for (j=0; j<9; j++){
-                scanf("%d", &mat[i][j]);
-            }   
+                scanf("%c", &espaco);
+                scanf("%c", &mat[i][j]);
+                printf("%c", mat[i][j]);
+            }
+            printf("\n");
         }
 
         //verificando as linhas
 
         for (i=0; i<9 && controle!=1; i++){
-            for (j=0; j<9 && controle!=1; j++){            
-                if (1 <= mat[i][j] && mat[i][j] <=9){
+            for (j=0; j<9 && controle!=1; j++){
+                caracter = mat[i][j]-64;
+                if (1 <= caracter && caracter <= 9){
                     recebe = mat[i][j]-64;            
                     if (vet[recebe]==0){
                         vet[recebe]=1;
@@ -58,7 +63,7 @@ int main(){
         
         for (j=0; j<9 && controle!=1; j++){
             for (i=0; i<9 && controle!=1; i++){            
-                if (1 <= mat[i][j] && mat[i][j] <=9){                
+                if (1 <= caracter && caracter <=9){                
                     recebe = mat[i][j]-64;                
                     if (vet[recebe]==0){
                         vet[recebe]=1;

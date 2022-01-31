@@ -3,15 +3,23 @@
 
 int main()
 {
-    int vetor;
-    int j, a, b;
+    int *vetor;
+    int i, a, b;
     a=5000;
     b=0;
-    for (j=0;j<a;j++){
-        vetor=malloc(xsizeof(int));
-        vetor[j]=b;
+    
+    //aloca dinamicamente o vetor a partir de "a"
+    vetor = malloc(a*sizeof(int));
+    
+    //laço que monta o vetor a partir de "a"
+    for (i = 0; i < a; i++){     
+        vetor[i]=b;
         b++;
-        printf("%d \n", vetor[j]);
+        printf("%d \n", vetor[i]);
     }
+   
+    //libera o vetor
+    free (vetor);
+    
   return 0;
 }

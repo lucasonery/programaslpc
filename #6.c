@@ -8,8 +8,8 @@ void preenche(int matriz[9][9]){
     srand(time(0));    
     for ( i=0; i<9; i++ ){
         for ( j=0; j<9; j++ ) {
-             matriz[i][j] = rand()%10;
-         }
+            matriz[i][j] = rand()%10;
+        }
     }
     return;
 }
@@ -17,19 +17,30 @@ void preenche(int matriz[9][9]){
 void imprime(int matriz[9][9]){
 
     int i, j;
-    for ( i=0; i<9; i++ ){
-        for ( j=0; j<9; j++ ) {
-             printf("%d", matriz[ i ][ j ]);
+    for (i = 0; i < 9; i++ ){
+        for ( j = 0; j < 9; j++ ) {
+             printf("%d", matriz[i][j]);
         }
     }
     return;
+}
+
+void libera(int matriz [9][9){
+    
+    int i;
+    
+    for (i = 0; i < 9; i++){
+        free(matriz[i]);
+    }
+    
+    free (matriz);
 }
 
 int main(){
 
     int **matriz;
     int i, j;
-
+    
     matriz = malloc(9*sizeof(int*));
 
     for(i = 0; i < 9; i++){
@@ -38,6 +49,7 @@ int main(){
 
     preenche(matriz);
     imprime(matriz);
+    libera(matriz);
 
 return 0;
 }
